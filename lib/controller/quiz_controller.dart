@@ -24,65 +24,41 @@
     // List of quiz questions
     final List<QuizQuestion> questions = [
       QuizQuestion(
-        question: "Who is known as the 'God of Cricket' in India?",
-        options: ["Brian Lara", "Virat Kohli", "Kapil Dev", "Sachin Tendulkar"],
-        correctAnswerIndex: 3,
-        imagePath: "assets/images/don.png",
+        question: "Harold (Dickie) Bird is best known for his career in cricket as:",
+        options: ["An umpire", "A batsman", "An administrator", "A bowler"],
+        correctAnswerIndex: 0,
+        //imagePath: "assets/images/don.png",
       ),
       QuizQuestion(
-        question: "Which Indian cricketer has the highest individual score in Test cricket in 2011-2024?",
-        options: [ "kapil dev", "Virender Sehwag", "Virat Kohli", "MS Dhoni",],
-        correctAnswerIndex: 2,
-        imagePath: "assets/images/quiz2.png",
-      ),
-      QuizQuestion(
-        question: "Who captained India to its first-ever ICC Cricket World Cup victory in 1983?",
-        options: [ "Anil Kumble", "Kapil Dev", "Virender Sehwag", "Rahul Dravid"],
+        question: "For how many days is a Test match scheduled?",
+        options: [ "50 overs", "Five days", "One day", "100 overs",],
         correctAnswerIndex: 1,
-        imagePath: "assets/images/quiz3.png",
+        //imagePath: "assets/images/quiz2.png",
       ),
       QuizQuestion(
-        question: "Who holds the record for the most centuries in One Day Internationals for India?",
-        options: ["Virender Sehwag", "Sunil Gavaskar", "Virat Kohli", "Sachin Tendulkar"],
-        correctAnswerIndex: 3,
-        imagePath: "assets/images/quiz4.png",
-      ),
-      QuizQuestion(
-        question: "Which Indian cricketer has won the most number of Man of the Match awards in ICC Cricket World Cup history?",
-        options: ["Rahul Dravid", "Virender Sehwag", "Sachin Tendulkar", "MS Dhoni"],
+        question: "In which year were the first laws of cricket believed to have been written?",
+        options: [ "1709", "1882", "1774", "1806"],
         correctAnswerIndex: 2,
-        imagePath: "assets/images/quiz5.png",
+        //imagePath: "assets/images/quiz3.png",
       ),
       QuizQuestion(
-        question: "Who was the captain of the Indian cricket team in Test matches in 2017?",
-        options: ["Virender Sehwag", "Sunil Gavaskar", "Virat Kohli", "Sachin Tendulkar"],
+        question: "What is the slang term given to a ball that is bowled so well that it is considered unplayable by the batsman?",
+        options: ["A half volley", "A jaffa", "An over", "An inswinger"],
+        correctAnswerIndex: 3,
+       // imagePath: "assets/images/quiz4.png",
+      ),
+      QuizQuestion(
+        question: "What does the term LBW stand for in cricket?",
+        options: ["Lunch bought weekly", "Long blue wickets", "Leg before wide", "Leg before wicket"],
+        correctAnswerIndex: 3,
+       // imagePath: "assets/images/quiz5.png",
+      ),
+      QuizQuestion(
+        question: "When the batsman hits the ball and it clears the boundary on the full, how many runs are scored?",
+        options: ["Four", "None", "Six", "Three"],
         correctAnswerIndex: 2,
         imagePath: "assets/images/quiz6.png",
-      ),QuizQuestion(
-        question: "Who was the first Indian cricketer to score a double century in One Day Internationals?",
-        options: ["Virender Sehwag", "Sachin Tendulkar", "Sunil Gavaskar", "Virat Kohli", ],
-        correctAnswerIndex: 1,
-        imagePath: "assets/images/quiz6.png",
       ),
-      QuizQuestion(
-        question: "Which Indian cricketer has the highest individual score in Test cricket in 2011-2024?",
-        options: ["Virender Sehwag", "Sachin Tendulkar", "Anil Kumble", "Virat Kohli", ],
-        correctAnswerIndex: 4,
-        imagePath: "assets/images/quiz7.png",
-      ),
-      QuizQuestion(
-        question: "Which Indian bowler has taken the most wickets in Test cricket?",
-        options: ["Virender Sehwag", "Anil Kumble", "Anil Kumble", "Virat Kohli", ],
-        correctAnswerIndex: 1,
-        imagePath: "assets/images/quiz7.png",
-      ),
-      QuizQuestion(
-        question: "Who holds the record for the highest individual score in Twenty20 Internationals for India in 2024?",
-        options: ["Virender Sehwag", "Shubman Gill", "Anil Kumble", "Virat Kohli", ],
-        correctAnswerIndex: 1,
-        imagePath: "assets/images/quiz8.png",
-      ),
-
     ];
 
     @override
@@ -114,7 +90,7 @@
         isAnswered.value = false;
       } else {
         // All questions answered, show results
-       // Get.to(() => ResultScreen());
+       Get.to(() => ResultScreen());
       }
       update();
     }
@@ -134,7 +110,7 @@
             selectedAnswerIndex.value = -1;
             isAnswered.value = false;
           } else {
-           // Get.to(() => ResultScreen());
+           Get.to(() => ResultScreen());
           }
         });
         update();

@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
   import 'package:flutter_screenutil/flutter_screenutil.dart';
   import 'package:get/get.dart';
 
+import '../../utils/values/style.dart' show kSize11DarkW500Text;
+
   class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     final String title;
 
@@ -33,44 +35,65 @@ import 'package:flutter/material.dart';
               // Back button
               GestureDetector(
                 onTap: () {
-                  if (Get.isOverlaysOpen) {
-                    Get.back();
-                  } else {
-                    //Get.offAll(() => Menu());
-                  }
                   debugPrint("1212");
                 },
                 child: Container(
                   width: 61.w,
                   height: 61.h,
                   decoration: BoxDecoration(
-                    color: const Color(0xFF51636E).withOpacity(0.8),
-                    shape: BoxShape.circle,
+                    color: const Color.fromRGBO(13, 71, 161, 0.82),
+                    borderRadius: BorderRadius.circular(12.r),
                     border: Border.all(
-                      color: const Color.fromRGBO(103, 118, 86, 1), // ← your rgba color
-                      width: 2, // adjust as needed
+                      color: const Color.fromRGBO(103, 118, 86, 1),
+                      width: 2,
                     ),
                   ),
-                  child: Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
-                      size: 40.r,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12.r),
+                    child: Image.asset(
+                      'assets/images/setting.png',
+                      fit: BoxFit.cover,
                     ),
-                ),
+                  ),
+                )
               ),
               // Title
               Text(
+                textAlign: TextAlign.center,
                 title,
-                style: TextStyle(
+                style: kSize11DarkW500Text.copyWith(
+                  fontSize: 35.sp,
                   color: Colors.white,
-                  fontSize: 55.sp,
-                  fontFamily: 'Times New Roman',
-                  fontWeight: FontWeight.bold,
-                ),
+                )
               ),
               // Sound toggle button
-              //VolumeButton(),
-            ],
+              GestureDetector(
+                  onTap: () {
+                    if (Get.isOverlaysOpen) {
+                      Get.back();
+                    } else {
+                      //Get.offAll(() => Menu());
+                    }
+                    debugPrint("1212");
+                  },
+                  child: Container(
+                    width: 61.w,
+                    height: 61.h,
+                    decoration: BoxDecoration(
+                      color: const Color.fromRGBO(13, 71, 161, 0.82),
+                      borderRadius: BorderRadius.circular(12.r),
+                      border: Border.all(
+                        color: const Color.fromRGBO(103, 118, 86, 1),
+                        width: 2,
+                      ),
+                    ),
+                    child: Image.asset(
+                        'assets/images/exit.png',
+                        height: 20,
+                        width: 20,
+                      ),
+                  )
+              ),            ],
           ),
         ),
       );

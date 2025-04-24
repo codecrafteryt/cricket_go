@@ -62,8 +62,7 @@ import '../../utils/values/style.dart';
                       color: const Color.fromRGBO(121, 105, 159, 1),
                     ),
                   ],
-                )
-
+                ),
               ),
           ),
         ),

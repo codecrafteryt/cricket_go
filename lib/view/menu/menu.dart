@@ -8,9 +8,14 @@
         */
   import 'package:cricket_go/utils/extensions/extentions.dart';
 import 'package:cricket_go/utils/values/style.dart';
+import 'package:cricket_go/view/facts/fact1_screen.dart';
+import 'package:cricket_go/view/players/player1_screen.dart';
+import 'package:cricket_go/view/quiz/quiz_screen.dart';
 import 'package:cricket_go/view/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
   import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 
   class Menu extends StatelessWidget {
     Menu({Key? key}) : super(key: key);
@@ -46,21 +51,21 @@ import 'package:flutter/material.dart';
                 CustomButton(
                   text: "Events",
                   onPressed: () {
-                    // Get.off(() => Fact1Screen());
+                     Get.to(() => Fact1Screen());
                   },
                 ),
                 30.sbh,
                 CustomButton(
                   text: "Players",
                   onPressed: () {
-                   // Get.off(() => Player1Screen());
+                   Get.to(() => Player1Screen());
                   },
                 ),
                 30.sbh,
                 CustomButton(
                   text: "Quiz",
                   onPressed: () {
-                    // Get.off(() => QuizScreen());
+                    Get.off(() => QuizScreen());
                   },
                 ),
               ],
