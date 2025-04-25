@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
     @override
     Widget build(BuildContext context) {
       return Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Container(
             width: double.infinity,
@@ -187,7 +188,7 @@ import 'package:flutter/material.dart';
                 style: kSize14DarkW400Text.copyWith(
                   fontSize: 24.sp,
                   color: controller.isAnswered.value
-                      ? MyColors.textColor.withOpacity(0.6)
+                      ? MyColors.white
                       : MyColors.white,
                 ),
               ),
