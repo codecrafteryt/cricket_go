@@ -6,7 +6,8 @@
           ---------------------------------------
           Description: app bar
         */
-  import 'package:cricket_go/view/widgets/volume_button.dart';
+  import 'package:cricket_go/view/menu/menu.dart';
+import 'package:cricket_go/view/widgets/volume_button.dart';
 import 'package:flutter/material.dart';
   import 'package:flutter_screenutil/flutter_screenutil.dart';
   import 'package:get/get.dart';
@@ -36,6 +37,7 @@ import '../../utils/values/style.dart' show kSize11DarkW500Text;
               GestureDetector(
                 onTap: () {
                   debugPrint("1212");
+                  Get.offAll(() => Menu());
                 },
                 child: Container(
                   width: 61.w,
@@ -72,9 +74,8 @@ import '../../utils/values/style.dart' show kSize11DarkW500Text;
                     if (Get.isOverlaysOpen) {
                       Get.back();
                     } else {
-                      //Get.offAll(() => Menu());
+                      Get.offAll(() => Menu());
                     }
-                    debugPrint("1212");
                   },
                   child: Container(
                     width: 61.w,
