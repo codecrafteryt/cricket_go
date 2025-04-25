@@ -24,7 +24,6 @@ class SettingsScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-
             // Foreground content
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
@@ -78,9 +77,7 @@ class SettingsScreen extends StatelessWidget {
                             child: RotatedBox(
                               quarterTurns: -1,
                               child: _VolumeBar(
-                                onVolumeChanged: (value) {
-                                  controller.setMusicVolume(value);
-                                },
+                                onVolumeChanged: controller.setMusicVolume,
                                 volumeValue: controller.musicVolume,
                                 onActivate: () {
                                   if (!controller.isMusicOn.value) {
@@ -124,13 +121,8 @@ class SettingsScreen extends StatelessWidget {
                             height: 200.h,
                             child: RotatedBox(
                               quarterTurns: -1,
-                              child:_VolumeBar(
-                                onVolumeChanged: (value) {
-                                  controller.setSoundVolume(value);
-                                  if (controller.isSoundOn.value) {
-                                    controller.playSoundEffect('audio/sound.wav');
-                                  }
-                                },
+                              child: _VolumeBar(
+                                onVolumeChanged: controller.setSoundVolume,
                                 volumeValue: controller.soundVolume,
                                 onActivate: () {
                                   if (!controller.isSoundOn.value) {
@@ -171,7 +163,6 @@ class SettingsScreen extends StatelessWidget {
   }
 }
 
-
 class _VolumeBar extends StatelessWidget {
   final Function(double) onVolumeChanged;
   final RxDouble volumeValue;
@@ -190,19 +181,39 @@ class _VolumeBar extends StatelessWidget {
         final barWidth = constraints.maxWidth;
 
         void _handleInteraction(Offset localPosition) {
-          // Clamp to ensure we stay within bar boundaries
+          // Calculate new volume immediately
           final dx = localPosition.dx.clamp(0.0, barWidth);
           final newVolume = dx / barWidth;
+
+          // Apply volume change first - this gives immediate feedback
           onVolumeChanged(newVolume);
+
+          // Then activate if needed
           onActivate();
         }
 
         return GestureDetector(
+          // Optimize gesture detection for better responsiveness
+          behavior: HitTestBehavior.opaque,  // Ensures all taps are captured
+          onHorizontalDragStart: (details) {
+            _handleInteraction(details.localPosition);
+          },
           onHorizontalDragUpdate: (details) {
             _handleInteraction(details.localPosition);
           },
           onTapDown: (details) {
             _handleInteraction(details.localPosition);
+          },
+          onTapUp: (details) {
+            _handleInteraction(details.localPosition);
+          },
+          onVerticalDragStart: (details) {
+            final localPos = Offset(details.localPosition.dx, 0);
+            _handleInteraction(localPos);
+          },
+          onVerticalDragUpdate: (details) {
+            final localPos = Offset(details.localPosition.dx, 0);
+            _handleInteraction(localPos);
           },
           child: Container(
             width: barWidth,
@@ -226,7 +237,7 @@ class _VolumeBar extends StatelessWidget {
                     ),
                   ),
 
-                  // Filled part of the bar (green)
+                  // Filled part of the bar
                   Positioned(
                     top: 20,
                     left: 0,
@@ -234,7 +245,7 @@ class _VolumeBar extends StatelessWidget {
                       width: thumbPosition + (thumbWidth / 2),
                       height: 20,
                       decoration: BoxDecoration(
-                        color: Colors.transparent,
+                        color: Color.fromRGBO(72, 72, 170, 0.3),
                         borderRadius: BorderRadius.circular(30),
                       ),
                     ),
