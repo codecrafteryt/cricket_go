@@ -1,11 +1,4 @@
-/*
-        ---------------------------------------
-        Project: Stumped Game Mobile Application
-          Date: April 11, 2024
-        Author: Ameer from Pakistan
-        ---------------------------------------
-        Description: my images
-      */
+
   class MyImages {
     static const String braelo_app = "assets/images/braelo_app.png";
     static const String braelo_logo = 'assets/images/braelo_logo.png';

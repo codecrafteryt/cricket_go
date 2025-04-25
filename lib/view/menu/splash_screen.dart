@@ -1,11 +1,3 @@
-  /*
-          ---------------------------------------
-          Project: Stumped Game Mobile Application
-          Date: April 11, 2024
-          Author: Ameer from Pakistan
-          ---------------------------------------
-          Description: Splash screen code
-        */
   import 'dart:async';
   import 'package:cricket_go/utils/extensions/extentions.dart';
 import 'package:cricket_go/utils/values/style.dart';

@@ -1,11 +1,4 @@
-  /*
-          ---------------------------------------
-          Project: stumped Game Mobile Application
-          Date: April 11, 2024
-          Author: Ameer from Pakistan
-          ---------------------------------------
-          Description: menu screen
-        */
+
   import 'package:cricket_go/utils/extensions/extentions.dart';
 import 'package:cricket_go/utils/values/style.dart';
 import 'package:cricket_go/view/facts/fact1_screen.dart';

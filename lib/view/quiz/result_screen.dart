@@ -1,11 +1,4 @@
-  /*
-      ---------------------------------------
-      Project: Bat and Brain Game Mobile Application
-      Date: April 4, 2024
-      Author: Ameer from Pakistan
-      ---------------------------------------
-      Description: result screen
-    */
+
 
   import 'package:cricket_go/controller/quiz_controller.dart';
 import 'package:cricket_go/utils/extensions/extentions.dart';

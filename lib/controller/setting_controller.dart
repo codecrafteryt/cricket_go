@@ -1,11 +1,3 @@
-/*
-      ---------------------------------------
-      Project: Stumped Game Mobile Application
-          Date: April 25, 2025
-      Author: Ameer from Pakistan (Original)
-      ---------------------------------------
-      Description: Optimized Setting controller with improved audio responsiveness
-    */
 import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
