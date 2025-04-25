@@ -11,9 +11,9 @@ import 'package:cricket_go/utils/values/style.dart';
 import 'package:cricket_go/view/facts/fact1_screen.dart';
 import 'package:cricket_go/view/players/player1_screen.dart';
 import 'package:cricket_go/view/quiz/quiz_screen.dart';
+import 'package:cricket_go/view/setting_screen.dart';
 import 'package:cricket_go/view/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-  import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
@@ -46,7 +46,7 @@ import 'package:get/get_navigation/get_navigation.dart';
                     ),
                   ),
                 ),
-                200.sbh,
+                150.sbh,
                 //VolumeButton(),
                 CustomButton(
                   text: "Events",
@@ -66,6 +66,13 @@ import 'package:get/get_navigation/get_navigation.dart';
                   text: "Quiz",
                   onPressed: () {
                     Get.off(() => QuizScreen());
+                  },
+                ),
+                30.sbh,
+                CustomButton(
+                  text: "Setting",
+                  onPressed: () {
+                    Get.off(() => SettingsScreen());
                   },
                 ),
               ],
