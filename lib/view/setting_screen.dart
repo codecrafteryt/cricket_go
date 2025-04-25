@@ -2,6 +2,7 @@ import 'package:cricket_go/controller/setting_controller.dart';
 import 'package:cricket_go/utils/extensions/extentions.dart';
 import 'package:cricket_go/utils/values/my_color.dart';
 import 'package:cricket_go/utils/values/style.dart';
+import 'package:cricket_go/view/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -36,7 +37,7 @@ class SettingsScreen extends StatelessWidget {
                     "Cricket\nGo!",
                     style: kSize11DarkW500Text.copyWith(
                       fontSize: 50,
-                      color: Colors.white,
+                      color: const Color.fromRGBO(115, 119, 131, 1),
                     ),
                   ),
                   80.sbh,
@@ -99,8 +100,6 @@ class SettingsScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-
-                      // Sound Volume Column (duplicate logic for sound)
                       Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -109,37 +108,37 @@ class SettingsScreen extends StatelessWidget {
                             style: kSize11DarkW500Text.copyWith(
                               fontSize: 20.sp,
                               color: Colors.white,
+
                             ),
                           ),
                           10.sbh,
-                          Text(
-                           // "${(controller.soundVolume.value * 100).toInt()}",
-                            "",
+                          Obx(() => Text(
+                            "${(controller.soundVolume.value * 100).toInt()}",
                             style: kSize11DarkW500Text.copyWith(
                               fontSize: 32.sp,
                               color: Colors.white,
                             ),
-                          ),
+                          )),
                           10.sbh,
                           SizedBox(
                             height: 200.h,
                             child: RotatedBox(
                               quarterTurns: -1,
-                              child: _VolumeBar(
-                                // onVolumeChanged: (value) {
-                                // //  controller.setSoundVolume(value);
-                                // },
-                               // volumeValue: controller.soundVolume,
+                              child:_VolumeBar(
+                                onVolumeChanged: (value) {
+                                  controller.setSoundVolume(value);
+                                  if (controller.isSoundOn.value) {
+                                    controller.playSoundEffect('audio/sound.wav');
+                                  }
+                                },
+                                volumeValue: controller.soundVolume,
                                 onActivate: () {
-                                  // if (!controller.isSoundOn.value) {
-                                  //   controller.toggleSound();
-                                  // }
+                                  if (!controller.isSoundOn.value) {
+                                    controller.toggleSound();
+                                  }
                                 },
-                                onVolumeChanged: (value){
-
-                                },
-                                volumeValue: controller.musicVolume,
                               ),
+
                             ),
                           ),
                           10.sbh,
@@ -154,7 +153,14 @@ class SettingsScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-
+                  50.sbh,
+                  CustomButton(
+                    height: 40.0,
+                    width: 120.0,
+                    text: "Back",
+                    fontSize: 12,
+                    onPressed: () => Get.back(),
+                  ),
                 ],
               ),
             ),
@@ -215,7 +221,7 @@ class _VolumeBar extends StatelessWidget {
                     height: 20,
                     margin: const EdgeInsets.symmetric(vertical: 20),
                     decoration: BoxDecoration(
-                      color: Colors.grey[400],
+                      color: Color.fromRGBO(175, 222, 229, 1),
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
@@ -228,7 +234,7 @@ class _VolumeBar extends StatelessWidget {
                       width: thumbPosition + (thumbWidth / 2),
                       height: 20,
                       decoration: BoxDecoration(
-                        color: Colors.green[700],
+                        color: Colors.transparent,
                         borderRadius: BorderRadius.circular(30),
                       ),
                     ),
@@ -242,16 +248,8 @@ class _VolumeBar extends StatelessWidget {
                       width: thumbWidth,
                       height: thumbWidth,
                       decoration: BoxDecoration(
-                        color: const Color(0xFF9E9B64),
+                        color: Color.fromRGBO(72, 72, 170, 1),
                         shape: BoxShape.circle,
-                        border: Border.all(color: Colors.black87, width: 1),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
-                            blurRadius: 2.0,
-                            offset: Offset(0, 1),
-                          ),
-                        ],
                       ),
                     ),
                   ),

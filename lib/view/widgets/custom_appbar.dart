@@ -7,6 +7,7 @@
           Description: app bar
         */
   import 'package:cricket_go/view/menu/menu.dart';
+import 'package:cricket_go/view/setting_screen.dart';
 import 'package:cricket_go/view/widgets/volume_button.dart';
 import 'package:flutter/material.dart';
   import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,7 +38,7 @@ import '../../utils/values/style.dart' show kSize11DarkW500Text;
               GestureDetector(
                 onTap: () {
                   debugPrint("1212");
-                  Get.offAll(() => Menu());
+                  Get.to(() => SettingsScreen());
                 },
                 child: Container(
                   width: 61.w,
@@ -65,7 +66,7 @@ import '../../utils/values/style.dart' show kSize11DarkW500Text;
                 title,
                 style: kSize11DarkW500Text.copyWith(
                   fontSize: 35.sp,
-                  color: Colors.white,
+                  color: const Color.fromRGBO(115, 119, 131, 1),
                 )
               ),
               // Sound toggle button

@@ -30,7 +30,7 @@ import 'package:flutter/material.dart';
             child: Column(
               children: [
                 CustomAppBar(
-                  title: "QUIZ:",
+                  title: "Cricket\nGo!",
                 ),
                 Expanded(
                   child: SingleChildScrollView(

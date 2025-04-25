@@ -20,6 +20,7 @@ import '../../utils/values/style.dart';
     final double borderOpacity;
     final double height;
     final double width;
+    final double fontSize;
 
     const CustomButton({
       Key? key,
@@ -30,6 +31,7 @@ import '../../utils/values/style.dart';
       this.borderOpacity = 0.52,
       this.height = 61.0,
       this.width = 210.0,
+      this.fontSize = 24.0,
     }) : super(key: key);
 
     @override
@@ -53,7 +55,7 @@ import '../../utils/values/style.dart';
                 textAlign: TextAlign.center,
                 text,
                 style: kSize14DarkW400Text.copyWith(
-                  fontSize: 24.sp,
+                  fontSize: fontSize.sp,
                   color: MyColors.white,
                   shadows: [
                     Shadow(

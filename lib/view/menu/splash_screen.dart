@@ -69,7 +69,7 @@ import 'package:get/get_navigation/get_navigation.dart';
                    "Cricket Go!",
                  style: kSize11DarkW500Text.copyWith(
                    fontSize: 59,
-                   color: Colors.white,
+                     color: const Color.fromRGBO(115, 119, 131, 1),
                  ),
                  ),
                ),

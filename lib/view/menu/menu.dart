@@ -42,11 +42,11 @@ import 'package:get/get_navigation/get_navigation.dart';
                     "Cricket Go!",
                     style: kSize11DarkW500Text.copyWith(
                       fontSize: 59,
-                      color: Colors.white,
+                      color: const Color.fromRGBO(115, 119, 131, 1),
                     ),
                   ),
                 ),
-                150.sbh,
+                120.sbh,
                 //VolumeButton(),
                 CustomButton(
                   text: "Events",
@@ -65,14 +65,17 @@ import 'package:get/get_navigation/get_navigation.dart';
                 CustomButton(
                   text: "Quiz",
                   onPressed: () {
-                    Get.off(() => QuizScreen());
+                    Get.to(() => QuizScreen());
                   },
                 ),
                 30.sbh,
                 CustomButton(
-                  text: "Setting",
+                  height: 40.0,
+                  width: 120.0,
+                  text: "Settings",
+                  fontSize: 12,
                   onPressed: () {
-                    Get.off(() => SettingsScreen());
+                    Get.to(() => SettingsScreen());
                   },
                 ),
               ],

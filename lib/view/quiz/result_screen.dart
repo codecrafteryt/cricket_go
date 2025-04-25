@@ -96,6 +96,7 @@ import 'quiz_screen.dart';
                             text: "Retry",
                             onPressed: () {
                               Get.offAll(() => QuizScreen());
+                              controller.resetQuiz();
                             },
                           ),
                         ],
